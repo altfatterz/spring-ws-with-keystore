@@ -1,0 +1,57 @@
+<wsdl:definitions targetNamespace="http://www.uefa.com/uefaeuro/season=2016/teams" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.uefa.com/uefaeuro/season=2016/teams" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.uefa.com/uefaeuro/season=2016/teams">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://www.uefa.com/uefaeuro/season=2016/teams" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="getTeamRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="countryCode" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTeamResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="team" type="tns:team"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="team">
+                <xs:sequence>
+                    <xs:element name="countryCode" type="xs:string"/>
+                    <xs:element name="country" type="xs:string"/>
+                    <xs:element name="nickName" type="xs:string"/>
+                    <xs:element name="coach" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getTeamRequest">
+        <wsdl:part element="tns:getTeamRequest" name="getTeamRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getTeamResponse">
+        <wsdl:part element="tns:getTeamResponse" name="getTeamResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="TeamsPort">
+        <wsdl:operation name="getTeam">
+            <wsdl:input message="tns:getTeamRequest" name="getTeamRequest"/>
+            <wsdl:output message="tns:getTeamResponse" name="getTeamResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TeamsPortSoap11" type="tns:TeamsPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getTeam">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="getTeamRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTeamResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TeamsPortService">
+        <wsdl:port binding="tns:TeamsPortSoap11" name="TeamsPortSoap11">
+            <soap:address location="https://localhost:8443/uefaeuro2016"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
