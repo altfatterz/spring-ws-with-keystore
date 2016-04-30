@@ -8,6 +8,9 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Zoltan Altfatter
+ */
 @Component
 public class TeamRepository {
 

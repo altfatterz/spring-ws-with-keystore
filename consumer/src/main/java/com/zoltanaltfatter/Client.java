@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.ws.WebServiceException;
 
+/**
+ * @author Zoltan Altfatter
+ */
 @SpringBootApplication
 public class Client {
 

@@ -9,6 +9,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+/**
+ * @author Zoltan Altfatter
+ */
 @Endpoint
 public class TeamEndpoint {
 

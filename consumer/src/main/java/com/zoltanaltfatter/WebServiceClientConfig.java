@@ -14,6 +14,9 @@ import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
 import java.security.KeyStore;
 
+/**
+ * @author Zoltan Altfatter
+ */
 @Configuration
 public class WebServiceClientConfig {
 

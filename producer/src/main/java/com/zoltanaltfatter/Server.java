@@ -3,6 +3,9 @@ package com.zoltanaltfatter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Zoltan Altfatter
+ */
 @SpringBootApplication
 public class Server {
 
