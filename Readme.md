@@ -42,6 +42,6 @@ In the output you should see:
 
 For more in-depth explanation check the blog post:
 
-
+[http://zoltanaltfatter.com/2016/04/30/soap-over-https-with-client-certificate-authentication](http://zoltanaltfatter.com/2016/04/30/soap-over-https-with-client-certificate-authentication/)
 
 
