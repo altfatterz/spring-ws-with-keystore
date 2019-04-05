@@ -2,24 +2,30 @@ package com.zoltanaltfatter;
 
 import com.eufa.euro.GetTeamRequest;
 import com.eufa.euro.GetTeamResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.ws.client.core.WebServiceTemplate;
 
 /**
  * @author Zoltan Altfatter
  */
-public class TeamClient extends WebServiceGatewaySupport {
+@Slf4j
+@Component
+public class TeamClient {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TeamClient.class);
+    private WebServiceTemplate webServiceTemplate;
+
+    public TeamClient(WebServiceTemplate webServiceTemplate) {
+        this.webServiceTemplate = webServiceTemplate;
+    }
 
     public GetTeamResponse getTeamByCountryCode(String countryCode) {
         GetTeamRequest request = new GetTeamRequest();
         request.setCountryCode(countryCode);
 
-        GetTeamResponse response = (GetTeamResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+        GetTeamResponse response = (GetTeamResponse) webServiceTemplate.marshalSendAndReceive(request);
 
-        LOGGER.info("received message:" + response);
+        log.info("received message:" + response);
         return response;
     }
 }

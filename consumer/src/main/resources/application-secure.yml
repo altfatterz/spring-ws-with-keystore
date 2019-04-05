@@ -7,4 +7,4 @@ uefa.ws:
   key-store: classpath:javaclient.jks
   key-storepassword: password
   trust-store: classpath:keystore.jks
-  trust-store-password: asswo
+  trust-store-password: password
