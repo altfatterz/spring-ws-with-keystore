@@ -1,0 +1,5 @@
+logging.level:
+  org.springframework.ws: TRACE
+  com.zoltanaltfatter: INFO
+
+uefa.ws.endpoint-url: http://localhost:8080/uefaeuro2016

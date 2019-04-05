@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.transport.http.HttpsUrlConnectionMessageSender;
@@ -18,9 +19,10 @@ import java.security.KeyStore;
  * @author Zoltan Altfatter
  */
 @Configuration
-public class WebServiceClientConfig {
+@Profile("secure")
+public class SecureWebServiceClientConfig {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WebServiceClientConfig.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecureWebServiceClientConfig.class);
 
     @Value("${uefa.ws.endpoint-url}")
     private String url;

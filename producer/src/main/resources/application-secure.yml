@@ -1,0 +1,11 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: password
+    key-alias: selfsigned
+
+    trust-store: classpath:truststore.jks
+    trust-store-password: password
+    # the clients have to send a signed certificate from a list of certificates which the server trusts.
+    client-auth: need

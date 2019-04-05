@@ -1,0 +1,10 @@
+logging.level:
+  org.springframework.ws: DEBUG
+  com.zoltanaltfatter: INFO
+
+uefa.ws:
+  endpoint-url: https://localhost:8443/uefaeuro2016
+  key-store: classpath:javaclient.jks
+  key-storepassword: password
+  trust-store: classpath:keystore.jks
+  trust-store-password: asswo
