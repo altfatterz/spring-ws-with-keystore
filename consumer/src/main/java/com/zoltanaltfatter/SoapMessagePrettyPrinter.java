@@ -20,6 +20,7 @@ public class SoapMessagePrettyPrinter {
 
             try {
                 Source source = soapMessage.getSOAPPart().getContent();
+
                 Transformer transformer = createTransformer();
                 ByteArrayOutputStream formattedMessage = new ByteArrayOutputStream();
                 transformer.transform(source, new StreamResult(formattedMessage));

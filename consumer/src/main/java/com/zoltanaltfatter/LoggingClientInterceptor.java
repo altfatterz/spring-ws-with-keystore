@@ -1,10 +1,12 @@
 package com.zoltanaltfatter;
 
+import org.springframework.stereotype.Component;
 import org.springframework.ws.client.WebServiceClientException;
 import org.springframework.ws.client.support.interceptor.ClientInterceptorAdapter;
 import org.springframework.ws.context.MessageContext;
 
-public class CustomClientInterceptor extends ClientInterceptorAdapter {
+@Component
+public class LoggingClientInterceptor extends ClientInterceptorAdapter {
 
     @Override
     public boolean handleRequest(MessageContext messageContext) throws WebServiceClientException {

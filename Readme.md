@@ -48,3 +48,4 @@ For more in-depth explanation check the blog post:
 Reference:
 
 [https://codenotfound.com/spring-ws-log-client-server-http-headers.html](https://codenotfound.com/spring-ws-log-client-server-http-headers.html)
+[http://wpcertification.blogspot.com/2011/10/pretty-printing-soap-messages.html](http://wpcertification.blogspot.com/2011/10/pretty-printing-soap-messages.html)

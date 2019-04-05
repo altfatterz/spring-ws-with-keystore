@@ -2,6 +2,7 @@ package com.zoltanaltfatter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.webservices.client.WebServiceTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.client.core.WebServiceTemplate;
+import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
 import org.springframework.ws.transport.WebServiceMessageSender;
 import org.springframework.ws.transport.http.HttpsUrlConnectionMessageSender;
 
@@ -17,9 +19,6 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
 
 /**
  * @author Zoltan Altfatter
@@ -45,6 +44,12 @@ public class SecureWebServiceClientConfig {
     @Value("${uefa.ws.trust-store-password}")
     private String trustStorePassword;
 
+    @Autowired
+    private LoggingClientInterceptor loggingClientInterceptor;
+
+    @Autowired
+    private Wss4jSecurityInterceptor wss4jSecurityInterceptor;
+
     @Bean
     public WebServiceTemplate webServiceTemplate(WebServiceTemplateBuilder builder, Jaxb2Marshaller marshaller) throws Exception {
         return builder
@@ -52,7 +57,7 @@ public class SecureWebServiceClientConfig {
                 .setMarshaller(marshaller)
                 .setUnmarshaller(marshaller)
                 .additionalMessageSenders(createWebServiceMessageSender())
-                .additionalInterceptors(new CustomClientInterceptor()).build();
+                .additionalInterceptors(wss4jSecurityInterceptor, loggingClientInterceptor).build();
     }
 
     private WebServiceMessageSender createWebServiceMessageSender() throws Exception {
