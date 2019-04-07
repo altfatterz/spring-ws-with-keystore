@@ -49,3 +49,16 @@ Reference:
 
 [https://codenotfound.com/spring-ws-log-client-server-http-headers.html](https://codenotfound.com/spring-ws-log-client-server-http-headers.html)
 [http://wpcertification.blogspot.com/2011/10/pretty-printing-soap-messages.html](http://wpcertification.blogspot.com/2011/10/pretty-printing-soap-messages.html)
+[https://stackoverflow.com/questions/52217498/get-principal-from-saml-assertion-into-spring-security-ws-soap](https://stackoverflow.com/questions/52217498/get-principal-from-saml-assertion-into-spring-security-ws-soap)
+
+
+[http://jaminhitchcock.blogspot.com/](http://jaminhitchcock.blogspot.com/)
+
+wss4j 2.0 is different:
+[https://ws.apache.org/wss4j/migration/wss4j20.html](https://ws.apache.org/wss4j/migration/wss4j20.html)
+
+There is `SAMLCallback`, the `SAMLIssuer` functionality has been moved to the `SAMLCallback`, so that the CallbackHandler used to create a SAML Assertion is responsible for all of the signing configuration as well.
+
+See config: https://ws.apache.org/wss4j/config.html
+
+

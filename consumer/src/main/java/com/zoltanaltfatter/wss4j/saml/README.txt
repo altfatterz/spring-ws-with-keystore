@@ -1,0 +1,1 @@
+copied from: wss4j 2.2.0 version because this is included by default from spring-ws-security 3.0.6 RELEASE
