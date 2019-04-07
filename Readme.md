@@ -9,7 +9,7 @@ $ mvn clean package
 Start the uefa-service with:
 
 ```
-$ java -jar producer/target/producer-0.0.1-SNAPSHOT.jar --spring.profiles.active=secure
+$ java -jar producer/target/producer-0.0.1-SNAPSHOT.jar --spring.profiles.active=https
 ```
 
 #### SoapUI

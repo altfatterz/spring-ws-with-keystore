@@ -24,10 +24,10 @@ import java.security.KeyStore;
  * @author Zoltan Altfatter
  */
 @Configuration
-@Profile("secure")
-public class SecureWebServiceClientConfig {
+@Profile("https")
+public class HttpsWebServiceClientConfig {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SecureWebServiceClientConfig.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpsWebServiceClientConfig.class);
 
     @Value("${uefa.ws.endpoint-url}")
     private String endpointUri;

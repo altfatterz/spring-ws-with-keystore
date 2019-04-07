@@ -11,8 +11,8 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
 
 @Configuration
-@Profile("unsecure")
-public class UnsecureWebServiceClientConfig {
+@Profile("http")
+public class HttpWebServiceClientConfig {
 
     @Value("${uefa.ws.endpoint-url}")
     private String endpointUri;
